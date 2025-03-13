@@ -151,6 +151,24 @@ bool errording(string input){
     return output;
 }
 
+int zeichenFlaeche(){
+    char input;
+    cout << "Groeße der Zeichenflaeche: \n 1 fuer A4 \n 2 fuer gesamte Flaeche \n";
+    cin >> input;
+
+    if(input == 1){
+        return 1;
+    }
+    else if(input == 2){
+        return 2;
+    }
+    else{
+        cout << "Keine valide Eingabe! \n";
+        zeichenFlaeche();
+    }
+    return 0;
+}
+
 int main() {
 
     string portName = "/dev/ttyUSB0";  // Serial Port festlegen
@@ -279,18 +297,23 @@ int main() {
         }
 
         serialPort.sendData(q.front());//Sende erste Daten der Warteschlange, bzw. erste Zeile der Datei
+        temp = q.front();
+
         while(!q.empty()){
-            if(d.find("f00000e")!=-1){//Wenn ein "Alles OK" vom Mikrocontroller kommt, wird Queue gepopt
+            if(d == "f00000e"){//Wenn ein "Alles OK" vom Mikrocontroller kommt, wird Queue gepopt
             q.pop();
+            temp = q.front();
+            serialPort.sendData(q.front());
             }
             d=serialPort.receiveData();//Auf Daten warten
             cout << d;//Output von empfangenen Daten
             temp=q.front();//Speichert front der queue in temp ab
-            sleep(2);//Warten, da Mikrocontroller lahm und während des Fahren gar nichts macht :/
+            sleep(3);//Warten, da Mikrocontroller lahm und während des Fahren gar nichts macht :/
             serialPort.sendData(q.front());//front der Queue senden
             do{
                 d=serialPort.receiveData();//Während nichts ankommt auf Daten warten
-            }while(d=="");
+                cout << d;
+            }while(d!="f00000e");
             if(temp==""){
                 cout << "AAAAAAAAAAAAAAAAAAAAAA";//Abbruch, wenn front der queue leer
                 break;
