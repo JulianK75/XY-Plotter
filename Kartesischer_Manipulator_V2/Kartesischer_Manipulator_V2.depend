@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1737383977 source:/home/labor/10_WORKSPACE/Kartesischer_Manipulator_V2/main.cpp
+	<iostream>
+	<unistd.h>
+	<fcntl.h>
+	<termios.h>
+	<errno.h>
+	<cstring>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	<queue>
+	<sstream>
+	<string>
+
+1739807569 source:/home/labor/10_WORKSPACE/Projekt_XY_Plotter/Kartesischer_Manipulator_V2/main.cpp
+	<iostream>
+	<unistd.h>
+	<fcntl.h>
+	<termios.h>
+	<errno.h>
+	<cstring>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	<queue>
+	<sstream>
+	<string>
+
+1741786992 source:/home/juliank75/01_Informatik/XY-Plotter/Projekt_XY_Plotter/Kartesischer_Manipulator_V2/main.cpp
+	<iostream>
+	<unistd.h>
+	<fcntl.h>
+	<termios.h>
+	<errno.h>
+	<cstring>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	<queue>
+	<sstream>
+	<string>
+
+1741109555 source:/home/juliank75/01_Informatik/XY-Plotter/Projekt_XY_Plotter/Kartesischer_Manipulator_V2/GUI_TestApp.cpp
+	"wx_pch.h"
+	"GUI_TestApp.h"
+	"GUI_TestMain.h"
+
+1741109555 /home/juliank75/01_Informatik/XY-Plotter/Projekt_XY_Plotter/Kartesischer_Manipulator_V2/GUI_TestApp.h
+	<wx/app.h>
+
+1741122974 /home/juliank75/01_Informatik/XY-Plotter/Projekt_XY_Plotter/Kartesischer_Manipulator_V2/GUI_TestMain.h
+	<wx/wx.h>
+	"GUI_TestApp.h"
+
+1741123095 source:/home/juliank75/01_Informatik/XY-Plotter/Projekt_XY_Plotter/Kartesischer_Manipulator_V2/GUI_TestMain.cpp
+	"wx_pch.h"
+	"GUI_TestMain.h"
+
