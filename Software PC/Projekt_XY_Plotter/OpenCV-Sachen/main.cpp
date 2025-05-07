@@ -96,7 +96,7 @@ int main() {
     std::vector<cv::Vec4i> hierarchy;
 
     // Definieren Sie eine Toleranz, um benachbarte Punkte zu vereinigen (z.B. 20 Pixel)
-    double tolerance = 20.0;
+    double tolerance = 2.0;
 
     while (true) {
         cap >> frame;  // Holen des aktuellen Kamerabildes
@@ -123,7 +123,7 @@ int main() {
             cv::GaussianBlur(gray, blurred, cv::Size(5, 5), 1.5);
 
             // Canny-Kantenerkennung anwenden
-            cv::Canny(blurred, edges, 100, 200, 3);
+            cv::Canny(blurred, edges, 100, 300, 3);
 
             // Finde alle Konturen
             cv::findContours(edges, contours, hierarchy, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);

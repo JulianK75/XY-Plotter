@@ -313,8 +313,6 @@ int main() {
                     }
             }
 
-
-
             /*
             do{
                 serialPort.sendData(q.front());
