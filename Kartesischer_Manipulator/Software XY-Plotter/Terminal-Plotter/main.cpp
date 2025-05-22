@@ -10,6 +10,9 @@
 #include <queue>
 #include <sstream>
 #include <string>
+#include <cmath>
+
+#define PI 3.14159265
 
 using namespace std;
 
@@ -170,6 +173,21 @@ int zeichenFlaeche(){
     return 0;
 }
 
+int matheZeichnen(int area, string funktion){
+    std::ofstream file("../Eckpunkte.txt");  // Öffnen der Textdatei zum Schreiben
+    double angle = 0.0;
+    int aufloesung=500;
+
+    if(funktion=="sin"){
+        int y[aufloesung];
+        for (int i=0; i<aufloesung; i++){
+            if(file.is_open()){
+
+            }
+        }
+    }
+    }
+
 int main() {
 
     string portName = "/dev/ttyUSB0";  // Serial Port festlegen
@@ -182,8 +200,10 @@ int main() {
     string dataToSend;
     string dataReceived;
     char userInput;
+    string userInputString;
+    int area;
 
-    cout << "Manueller Input? (y/n/a/d): ";
+    cout << "Manueller Input? (y/n/a/d) Mathematischer Modus? (m): ";
     cin >> userInput;
 
     if(userInput=='y'){
@@ -352,7 +372,13 @@ int main() {
         file.close();
         cout << "Koordinaten gelöscht. \n";
     }
+    else if(userInput=='m'){
+        area=zeichenFlaeche();
+        cout << "Mathematischer Modus. Welche Funktion? ";
+        cin >> userInputString;
 
+
+    }
 
     // Port schließen
     serialPort.close();

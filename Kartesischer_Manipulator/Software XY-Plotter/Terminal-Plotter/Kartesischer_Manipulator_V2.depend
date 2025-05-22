@@ -41,3 +41,17 @@
 	<sstream>
 	<string>
 
+1746707713 source:/home/juliank75/01_Informatik/XY-Plotter-main/Kartesischer_Manipulator/Software XY-Plotter/Terminal-Plotter/main.cpp
+	<iostream>
+	<unistd.h>
+	<fcntl.h>
+	<termios.h>
+	<errno.h>
+	<cstring>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	<queue>
+	<sstream>
+	<string>
+
