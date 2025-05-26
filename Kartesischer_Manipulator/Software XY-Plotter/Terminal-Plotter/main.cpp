@@ -10,9 +10,6 @@
 #include <queue>
 #include <sstream>
 #include <string>
-#include <cmath>
-
-#define PI 3.14159265
 
 using namespace std;
 
@@ -173,20 +170,9 @@ int zeichenFlaeche(){
     return 0;
 }
 
-int matheZeichnen(int area, string funktion){
-    std::ofstream file("../Eckpunkte.txt");  // Öffnen der Textdatei zum Schreiben
-    double angle = 0.0;
-    int aufloesung=500;
+void programm(int programm){
 
-    if(funktion=="sin"){
-        int y[aufloesung];
-        for (int i=0; i<aufloesung; i++){
-            if(file.is_open()){
-
-            }
-        }
-    }
-    }
+}
 
 int main() {
 
@@ -200,10 +186,8 @@ int main() {
     string dataToSend;
     string dataReceived;
     char userInput;
-    string userInputString;
-    int area;
 
-    cout << "Manueller Input? (y/n/a/d) Mathematischer Modus? (m): ";
+    cout << "Manueller Input? (y/n/a/d): ";
     cin >> userInput;
 
     if(userInput=='y'){
@@ -372,10 +356,43 @@ int main() {
         file.close();
         cout << "Koordinaten gelöscht. \n";
     }
-    else if(userInput=='m'){
-        area=zeichenFlaeche();
-        cout << "Mathematischer Modus. Welche Funktion? ";
-        cin >> userInputString;
+    else if(userInput=='p'){
+        string input;
+        cout << "Programmname: ";
+        cin >> userInput;
+
+        std::string str;
+        string temp;
+        string d;
+        bool portOpen;//Öffne Port
+        portOpen=serialPort.isOpen();
+        int number_of_lines;//Anzahl an Zeilen in der geöffneten Datei
+
+        int send = 1;
+        queue<string> q; //Warteschlange, in der die einzelnen Zeilen der Datei eingelesen werden
+
+
+            std::ifstream file("../Drachen");
+            while (std::getline(file, str)){
+            ++number_of_lines;
+            q.push(str);
+        }
+
+        while(!q.empty()){
+            switch (send){
+                case 1:
+                    serialPort.sendData(q.front());
+                    send = 0;
+                    break;
+                default:
+                    d = serialPort.receiveData();
+                    if(d.find("f00000e")!= -1 || d.find("f00100e")!= -1){
+                        q.pop();
+                        send = 1;
+                    }
+            }
+            }
+
 
 
     }
@@ -387,3 +404,4 @@ int main() {
 
 
 }
+

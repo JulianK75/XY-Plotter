@@ -16,3 +16,12 @@
 	<algorithm>
 	<string>
 
+1748075898 source:/home/labor/10_WORKSPACE/Kartesischer_Manipulator/Software XY-Plotter/OpenCV-Plotter/main.cpp
+	<opencv2/opencv.hpp>
+	<iostream>
+	<fstream>
+	<cmath>
+	<sstream>
+	<algorithm>
+	<string>
+

@@ -254,6 +254,7 @@ int main() {
 
             // Zeige das verarbeitete Bild mit den markierten Eckpunkten und Kanten
             cv::imshow("Eckpunkte und Kanten", result);
+            cv::imwrite("../AktuellesBild.jpg",result);
             }
             }
         }
