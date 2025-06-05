@@ -16,7 +16,7 @@
 	<algorithm>
 	<string>
 
-1748941619 source:/home/labor/10_WORKSPACE/Kartesischer_Manipulator/Software XY-Plotter/OpenCV-Plotter/main.cpp
+1749132010 source:/home/labor/10_WORKSPACE/Kartesischer_Manipulator/Software XY-Plotter/OpenCV-Plotter/main.cpp
 	<opencv2/opencv.hpp>
 	<iostream>
 	<fstream>
@@ -24,4 +24,5 @@
 	<sstream>
 	<algorithm>
 	<string>
+	<math.h>
 
