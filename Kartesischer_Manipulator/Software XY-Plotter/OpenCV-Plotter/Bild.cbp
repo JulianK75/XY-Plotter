@@ -34,14 +34,14 @@
 			<Add directory="../../../../../usr/include/opencv2" />
 		</Compiler>
 		<Linker>
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_core.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_highgui.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_imgproc.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_video.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_videoio.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libopencv_videostab.so" />
-			<Add library="../../../../../usr/lib/x86_64-linux-gnu/libjpeg.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libjpeg.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_core.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_highgui.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_imgproc.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_video.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_videoio.so" />
+			<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopencv_videostab.so" />
 			<Add directory="../../../../../usr/lib" />
 		</Linker>
 		<Unit filename="main.cpp" />

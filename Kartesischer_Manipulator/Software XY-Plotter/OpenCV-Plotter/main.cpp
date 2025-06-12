@@ -5,6 +5,8 @@
 #include <sstream>
 #include <algorithm>
 #include <string>
+#include <math.h>
+
 
 // Funktion, um den Abstand zwischen zwei Punkten zu berechnen
 double distance(const cv::Point& p1, const cv::Point& p2) {
@@ -67,13 +69,7 @@ std::string coordConv(char direction, int imgSizeX, int imgSizeY, float coord, i
     }
 }
 
-
-
-
-
-int main() {
-
-
+int imageCapture(){
     // Zugriff auf die Kamera (Standardkamera, meist USB-Kamera)
     cv::VideoCapture cap(0);  // 0 für die Standardkamera
     if (!cap.isOpened()) {
@@ -262,4 +258,78 @@ int main() {
     cap.release();  // Kamera freigeben
     cv::destroyAllWindows();  // Alle Fenster schließen
     return 0;
+}
+
+void mathMode(){
+    double T = 2*M_PI;
+    double resolution = 5000;
+    double dX;
+    double dT = T/resolution;
+
+
+    std::string input;
+    double doubleInput;
+
+    std::cout << "Aufloesung \n";
+    std::cin >> doubleInput;
+    if(doubleInput > 5000){
+        std::cout << "Aufloesung zu fein, muss kleiner als 5000 sein. \n";
+    }else{
+        resolution = doubleInput;
+    }
+    dX = 5100/resolution;
+
+    std::cout << "Anzahl an Perioden: \n";
+    std::cin >> doubleInput;
+    if(doubleInput < 50){
+        T = doubleInput*T;
+    }else{
+        std::cout << "Zu viele Perioden. \n";
+    }
+    dT = T/resolution;
+    double xyCoord[(int)resolution][2]={0};
+
+    std::cout << "sin fuer Sinus, cos fuer Cosinus. \n";
+    std::cin >> input;
+    if(input == "sin"){
+        for(int i=0; i<resolution; i++){
+        xyCoord[i][0]=dX*i;
+        xyCoord[i][1]=(sin(dT*i))*2500+2500;
+        }
+    }else if(input == "cos"){
+        for(int i=0; i<resolution; i++){
+        xyCoord[i][0]=dX*i;
+        xyCoord[i][1]=(cos(dT*i))*2500+2500;
+        }
+    }
+    double debug=(cos(2*M_PI))*2500+2500;
+
+    std::ofstream file("../Eckpunkte.txt");
+        if (file.is_open()) {
+            file << "x" << toFour((int)xyCoord[0][0]) << "y" << toFour((int)xyCoord[0][1]) << "p0r1" << "e" << "\n";
+            for(int i=1; i<resolution; i++){
+                file << "x" << toFour((int)xyCoord[i][0]) << "y" << toFour((int)xyCoord[i][1]) << "p1r1" << "e" << "\n";
+            }
+            file.close();  // Datei schließen
+                std::cout << "Eckpunkte in 'eckpunkte.txt' gespeichert! \n" << std::endl;
+            } else {
+                std::cerr << "Fehler beim Öffnen der Datei! \n" << std::endl;
+            }
+
+
+}
+
+int main() {
+    char mode;
+    std::cout << "Modus auswaehlen: b fuer Bildaufnahme, m fuer mathematischer Modus. \n";
+    std::cin >> mode;
+    if(mode == 'b'){
+        imageCapture();
+    }
+    else if(mode == 'm'){
+        mathMode();
+    }else{
+        std::cout << "ERROR! \n";
+    }
+
 }
