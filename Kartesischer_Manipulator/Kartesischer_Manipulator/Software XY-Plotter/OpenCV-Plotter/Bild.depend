@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1737382398 source:/home/labor/10_WORKSPACE/OpenCV-Sachen/main.cpp
+	<opencv2/opencv.hpp>
+	<iostream>
+	<fstream>
+	<cmath>
+	<sstream>
+	<algorithm>
+
+1741874989 source:/home/labor/10_WORKSPACE/Projekt_XY_Plotter/OpenCV-Sachen/main.cpp
+	<opencv2/opencv.hpp>
+	<iostream>
+	<fstream>
+	<cmath>
+	<sstream>
+	<algorithm>
+	<string>
+
+1749132010 source:/home/labor/10_WORKSPACE/Kartesischer_Manipulator/Software XY-Plotter/OpenCV-Plotter/main.cpp
+	<opencv2/opencv.hpp>
+	<iostream>
+	<fstream>
+	<cmath>
+	<sstream>
+	<algorithm>
+	<string>
+	<math.h>
+
